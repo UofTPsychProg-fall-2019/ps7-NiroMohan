@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;\red27\green31\blue34;}
+{\*\expandedcolortbl;;\cssrgb\c14118\c16078\c18039;}
+\margl1440\margr1440\vieww28600\viewh15320\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Name: Niroshica Mohanathas\
+Student Number: 1002296348\
+Year: MA, year 1\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\fs32 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\pardeftab720\sl360\partightenfactor0
+
+\f0\b\fs28 \cf2 \ul \ulc2 Raw data from my Experiment:
+\b0\fs24 \
+\ulnone \
+\cf0 \kerning1\expnd0\expndtw0 30 older adults aged 65+ with hearing loss who use hearing aids will be recruited to complete the Stroop task. \cf2 \expnd0\expndtw0\kerning0
+The independent variable is the condition (Congruent condition: the font name and colour are the same or Incongruent condition: the font name and colour are different). The dependent variable is reaction time (ms). Participants will complete a within-subject design in which they will all complete the congruent condition and the incongruent condition in a counterbalanced order. In order to analyze the responses from the Stroop task I will extract the following information: word, colour, congruent, corrAns, trials.thisRepN, trials.thisN, trials.thisIndex, InstruText.started, Instru.Text.stopped, response.keys, response.corr, response.rt, response.started, image.stopped, participant, session, date, expName, psychopyVersion and frameRate in the following file formats: \cf0 \kerning1\expnd0\expndtw0 csv, log, psydat and xlsx\cf2 \expnd0\expndtw0\kerning0
+. I will recode the responses into correct versus incorrect, take out missing trials and exclude any response times that are less than 150ms or greater than 300ms. \cf0 \kerning1\expnd0\expndtw0 The summary measures I will still need to compute is the mean reaction time (ms) to measure the speed of performance (rather then the accuracy which is another outcome measure recorded when analyzing the Stroop task in past literature, but the focus of this experiment is reaction time). \
+\
+
+\b\fs28 \ul Pseudocode: Raw data -> Findings:
+\b0\fs24 \
+\
+
+\b \cf2 \expnd0\expndtw0\kerning0
+\ulnone 1.
+\b0  Take all reaction times and do the following: take out any missing data (by deleting these rows of data in excel) and take out any trials less than 150ms or greater than 300ms (by using an if/else statement in R). This will be completed to account for trials in which participants did not respond (missing data) or trials in which they responded to quickly (e.g., anticipatory response) or took too long to respond (e.g., if they were tired or bored). \
+
+\b 2.
+\b0  Create an excel file with the following titles: Subject ID, Correct and Incorrect (to see which trials out of 50 participants got correct or incorrect). \
+
+\b 3.
+\b0  Take the remaining reaction times \cf2 (response.rt) \cf2 after all the step 1 transformations for each participant and calculate an average reaction time score for correct and incorrect trials using the \'93=average(cells)\'94 function in a new excel sheet \
+
+\b 4.
+\b0  Create a new excel sheet with the following titles: Subject ID, Correct Average Reaction Times (ms) and Incorrect Average Reaction Times (ms) and input all average reaction time scores for correct and incorrect (two scores- a correct score and a incorrect score-for each participant). Save the document as a csv file format.\
+
+\b 5.
+\b0  Import the csv file into R studio, install the ggplot2 library to create the following types of ggplots: scatter plot, bar graph, box plot and violin plot. The reason why I am creating different types of ggplots is to see which graph visually displays my distribution better. The x-axis would be the response type (Correct and Incorrect) and the y-axis would be Average Reaction Times (ms).  \
+
+\b 6.
+\b0  I can also take all reaction times and spilt them up by congruent and incongruent trials within the correct and incorrect response type data by creating a new excel file (or by using the same excel file and using a different sheet) with the following titles: Subject ID, Congruent Average Reaction Times (ms) and Incongruent Average Reaction Times (ms) for each participant. Save the document as a csv format. \
+
+\b 7.
+\b0  Import the csv file into R studio, and create the following types of ggplots: scatter plot, bar graph, box plot and violin plot. The x-axis would be the response type (Congruent and Incongruent) and the y-axis would be Average Reaction Times (ms). \
+
+\b 8.
+\b0  Now that I have each individual\'92s two average reaction times for correct and incorrect trials (step 3) and each individual\'92s four separate average reaction times for all congruent and incongruent trials (step 6), I can use the ggplot function to make a bar graph/scatterplot that has the following: x-axis as Response Type and y-axis as Reaction Time (ms). The bars would display each individual\'92s average reaction times for correct and incorrect responses and four scatter plot dots would display each participant\'92s average reaction times for the congruent and incongruent condition within each correct and incorrect bar. \
+
+\b 9.
+\b0  I can visually determine if each individual got trials correct or incorrect and see if each individual\'92s reaction times were faster in the congruent or incongruent condition relative to participants with the same eligibility criteria: normal or normal-to-corrected vision, self-reported age-related hearing loss, self-reported hearing aid user (more than 6 months), english speaker, 65+ years of age with no prior history of mobility impairments and neurological or psychiatric disorders. I can also see if participant\'92s were better in the congruent or incongruent trials, thus supporting or refuting the assumption that people are faster when the font name and colour are the same (congruent) as oppose to the opposite (incongruent). This will give me a sense of the role cognitive interference and inhibition plays in a speeded interference performance task. \cf2 I can go onto determine if participants got better (which is displayed as an increase in correct responses) overtime.\cf2 \
+
+\b 10. 
+\b0 Below is an example of a how a ggplot would look for one participant:\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f2 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Screen Shot 2020-02-02 at 5.08.50 PM.png \width17500 \height11140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\tx566\pardeftab720\sl360\partightenfactor0
+\cf2 \
+}
